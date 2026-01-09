@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPL – Kenya Football Portal</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; }
+    header { background: #0a7d3b; color: #fff; padding: 1rem; text-align: center; }
+    nav { background: #ffffff; padding: 0.5rem; display: flex; justify-content: center; gap: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    nav a { text-decoration: none; color: #0a7d3b; font-weight: bold; }
+    .container { padding: 1rem 1.5rem; }
+    h2 { color: #0a7d3b; margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 1rem; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
+    th { background: #e8f5ee; }
+    footer { background: #0a7d3b; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
+    .note { background: #fff3cd; padding: 0.75rem; border-left: 4px solid #ffc107; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>KPL – Kenya Football Portal</h1>
+  <p>Kenya Football Federation | Leagues • Teams • Players</p>
+</header>
+
+<nav>
+  <a href="#leagues">Leagues</a>
+  <a href="#teams">Teams</a>
+  <a href="#players">Players</a>
+  <a href="#about">About</a>
+</nav>
+
+<script>
+// Sample JSON data (Phase 2)
+const leagues = [
+  { name: "FKF Premier League", level: "Top Tier", status: "Active" },
+  { name: "FKF National Super League", level: "Second Tier", status: "Active" }
+];
+
+const teams = [
+  { name: "Gor Mahia FC", league: "FKF Premier League", county: "Nairobi" },
+  { name: "AFC Leopards", league: "FKF Premier League", county: "Nairobi" }
+];
+
+const players = [
+  { name: "Michael Olunga", team: "Al-Duhail / Kenya NT", position: "Striker" },
+  { name: "Masoud Juma", team: "Esteghlal FC", position: "Forward" }
+];
+
+function loadTable(data, tableId) {
+  const table = document.getElementById(tableId);
+  data.forEach(item => {
+    const row = document.createElement("tr");
+    Object.values(item).forEach(value => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+    table.appendChild(row);
+  });
+}
+
+window.onload = () => {
+  loadTable(leagues, "league-data");
+  loadTable(teams, "team-data");
+  loadTable(players, "player-data");
+};
+</script>
+
+<div class="container">
+
+  <section id="leagues">
+    <h2>Active Leagues in Kenya</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Level / League</th>
+        <th>Status / County</th>
+      </tr>
+      <tbody id="league-data"></tbody>
+    </table>
+  </section>
+
+  <section id="teams">
+    <h2>Active Teams (Sample)</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Level / League</th>
+        <th>Status / County</th>
+      </tr>
+      <tbody id="league-data"></tbody>
+    </table>
+  </section>
+
+  <section id="players">
+    <h2>Active Players (Sample)</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Level / League</th>
+        <th>Status / County</th>
+      </tr>
+      <tbody id="league-data"></tbody>
+    </table>
+    <div class="note">
+      This is a starter dataset. In the next phase, players and teams can be loaded dynamically from a database or JSON file.
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About KPL Website</h2>
+    <p>
+      This website is a community-driven football portal for Kenya. It aims to provide up-to-date information on all active leagues,
+      teams, and registered players under the Kenya Football Federation.
+    </p>
+    <p>
+      Future features include: admin uploads, live match results, player statistics, and automatic updates.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 KPL – Kenya Football Portal</p>
+</footer>
+
+</body>
+</html>
