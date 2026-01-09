@@ -1,173 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>KPL – Kenya Football Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; }
-    header { background: #0a7d3b; color: #fff; padding: 1rem; text-align: center; }
-    nav { background: #ffffff; padding: 0.5rem; display: flex; justify-content: center; gap: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    nav a { text-decoration: none; color: #0a7d3b; font-weight: bold; }
-    .container { padding: 1rem 1.5rem; }
-    h2 { color: #0a7d3b; margin-top: 2rem; }
-    table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 1rem; }
-    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
-    th { background: #e8f5ee; }
-    footer { background: #0a7d3b; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
-    .note { background: #fff3cd; padding: 0.75rem; border-left: 4px solid #ffc107; margin-top: 1rem; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #0a7d3b;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.8rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0a7d3b;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #0a7d3b;
+      border-bottom: 2px solid #0a7d3b;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      margin-top: 1.2rem;
+      color: #333;
+    }
+
+    .league {
+      margin-bottom: 2rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    .team {
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-top: 0.4rem;
+    }
+
+    footer {
+      background: #0a7d3b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .note {
+      background: #fff3cd;
+      padding: 1rem;
+      border-left: 5px solid #ffc107;
+      margin-top: 2rem;
+    }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>KPL – Kenya Football Portal</h1>
-  <p>Kenya Football Federation | Leagues • Teams • Players</p>
+  <p>Kenyan Leagues • Teams • Players</p>
 </header>
 
 <nav>
   <a href="#leagues">Leagues</a>
-  <a href="#teams">Teams</a>
-  <a href="#players">Players</a>
   <a href="#about">About</a>
 </nav>
 
-<script>
-// Sample JSON data (Phase 2)
-const leagues = [
-  { name: "FKF Premier League", level: "Top Tier", status: "Active" },
-  { name: "FKF National Super League", level: "Second Tier", status: "Active" }
-];
+<div class="container" id="leagues">
 
-const teams = [
-  { name: "Gor Mahia FC", league: "FKF Premier League", county: "Nairobi" },
-  { name: "AFC Leopards", league: "FKF Premier League", county: "Nairobi" }
-];
+  <!-- ================= FKF PREMIER LEAGUE ================= -->
+  <div class="league">
+    <h2>FKF Premier League (KPL)</h2>
 
-const players = [
-  { name: "Michael Olunga", team: "Al-Duhail / Kenya NT", position: "Striker" },
-  { name: "Masoud Juma", team: "Esteghlal FC", position: "Forward" }
-];
-
-function loadTable(data, tableId) {
-  const table = document.getElementById(tableId);
-  data.forEach(item => {
-    const row = document.createElement("tr");
-    Object.values(item).forEach(value => {
-      const cell = document.createElement("td");
-      cell.textContent = value;
-      row.appendChild(cell);
-    });
-    table.appendChild(row);
-  });
-}
-
-window.onload = () => {
-  loadTable(leagues, "league-data");
-  loadTable(teams, "team-data");
-  loadTable(players, "player-data");
-};
-</script>
-
-<div class="container">
-
-  <h2>Football Leagues in Kenya</h2>
-
-<ul>
-  <li>FKF Premier League (Top Tier)</li>
-  <li>FKF National Super League</li>
-  <li>FKF Division One</li>
-  <li>FKF Division Two</li>
-  <li>FKF Division Three</li>
-  <li>FKF Women Premier League</li>
-  <li>FKF Women National Super League</li>
-  <li>FKF Youth Leagues</li>
-</ul>
-
-    <h2>Active Leagues in Kenya</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Level / League</th>
-        <th>Status / County</th>
-      </tr>
-      <tbody id="league-data"></tbody>
-    </table>
-  </section>
-
-  <h2>Kenyan Football Teams</h2>
-
-<ul>
-  <li>Gor Mahia FC</li>
-  <li>AFC Leopards SC</li>
-  <li>Tusker FC</li>
-  <li>Kariobangi Sharks FC</li>
-  <li>Bandari FC</li>
-  <li>Ulinzi Stars FC</li>
-  <li>Kakamega Homeboyz FC</li>
-  <li>Posta Rangers FC</li>
-  <li>Mathare United FC</li>
-  <li>Nzoia Sugar FC</li>
-  <li>Sofapaka FC</li>
-  <li>Shabana FC</li>
-  <li>Mara Sugar FC</li>
-</ul>
-
-    <h2>Active Teams (Sample)</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Level / League</th>
-        <th>Status / County</th>
-      </tr>
-      <tbody id="league-data"></tbody>
-    </table>
-  </section>
-
-  <h2>Active Kenyan Football Players</h2>
-
-<ul>
-  <li>Michael Olunga – Striker</li>
-  <li>Masoud Juma – Forward</li>
-  <li>Eric Johana Omondi – Midfielder</li>
-  <li>Ayub Timbe – Winger</li>
-  <li>Joseph Okumu – Defender</li>
-  <li>Daniel Anyembe – Defender</li>
-  <li>Ismael Gonzalez – Goalkeeper</li>
-  <li>Brian Mandela – Defender</li>
-  <li>Anthony Akumu – Midfielder</li>
-  <li>Henry Meja – Forward</li>
-</ul>
-
-    <h2>Active Players (Sample)</h2>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Level / League</th>
-        <th>Status / County</th>
-      </tr>
-      <tbody id="league-data"></tbody>
-    </table>
-    <div class="note">
-      This is a starter dataset. In the next phase, players and teams can be loaded dynamically from a database or JSON file.
+    <div class="team">
+      <h3>Gor Mahia FC</h3>
+      <ul>
+        <li>Philemon Otieno – Defender</li>
+        <li>Ernest Wendo – Midfielder</li>
+        <li>Benson Omala – Striker</li>
+        <li>Austin Odhiambo – Midfielder</li>
+      </ul>
     </div>
-  </section>
 
-  <section id="about">
-    <h2>About KPL Website</h2>
-    <p>
-      This website is a community-driven football portal for Kenya. It aims to provide up-to-date information on all active leagues,
-      teams, and registered players under the Kenya Football Federation.
-    </p>
-    <p>
-      Future features include: admin uploads, live match results, player statistics, and automatic updates.
-    </p>
-  </section>
+    <div class="team">
+      <h3>AFC Leopards SC</h3>
+      <ul>
+        <li>Levis Opiyo – Goalkeeper</li>
+        <li>Washington Munene – Defender</li>
+        <li>Victor Omune – Midfielder</li>
+        <li>Boniface Ambani – Forward</li>
+      </ul>
+    </div>
+
+    <div class="team">
+      <h3>Tusker FC</h3>
+      <ul>
+        <li>Brian Bwire – Goalkeeper</li>
+        <li>Jackson Macharia – Defender</li>
+        <li>Charles Momanyi – Midfielder</li>
+        <li>Chris Erambo – Forward</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= NATIONAL SUPER LEAGUE ================= -->
+  <div class="league">
+    <h2>FKF National Super League</h2>
+
+    <div class="team">
+      <h3>Shabana FC</h3>
+      <ul>
+        <li>Fredrick Onyango – Goalkeeper</li>
+        <li>Kevin Omondi – Defender</li>
+        <li>Samuel Onyango – Midfielder</li>
+        <li>Clinton Asiago – Forward</li>
+      </ul>
+    </div>
+
+    <div class="team">
+      <h3>APS Bomet FC</h3>
+      <ul>
+        <li>Allan Mutinda – Goalkeeper</li>
+        <li>Brian Kibet – Defender</li>
+        <li>Victor Langat – Midfielder</li>
+        <li>James Rotich – Forward</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= FKF DIVISION ONE ================= -->
+  <div class="league">
+    <h2>FKF Division One</h2>
+
+    <div class="team">
+      <h3>Githurai All Stars</h3>
+      <ul>
+        <li>Joseph Mwangi – Goalkeeper</li>
+        <li>Peter Kamau – Defender</li>
+        <li>David Njoroge – Midfielder</li>
+        <li>Brian Waweru – Forward</li>
+      </ul>
+    </div>
+
+    <div class="team">
+      <h3>Kibera Black Stars</h3>
+      <ul>
+        <li>Ali Hassan – Goalkeeper</li>
+        <li>Mohamed Juma – Defender</li>
+        <li>Abdi Noor – Midfielder</li>
+        <li>Salim Abdi – Forward</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= WOMEN LEAGUE ================= -->
+  <div class="league">
+    <h2>FKF Women Premier League</h2>
+
+    <div class="team">
+      <h3>Vihiga Queens</h3>
+      <ul>
+        <li>Annette Kundu – Goalkeeper</li>
+        <li>Mercyline Achieng – Defender</li>
+        <li>Corazone Aquino – Midfielder</li>
+        <li>Jentrix Shikangwa – Forward</li>
+      </ul>
+    </div>
+
+    <div class="team">
+      <h3>Ulinzi Starlets</h3>
+      <ul>
+        <li>Rene Amani – Goalkeeper</li>
+        <li>Elizabeth Wambui – Defender</li>
+        <li>Essy Okida – Midfielder</li>
+        <li>Tecla Lorne – Forward</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    ⚠️ This is an independent football information platform and not the official FKF website.
+    Data can be updated manually via GitHub.
+  </div>
 
 </div>
 
-<footer>
+<footer id="about">
   <p>© 2026 KPL – Kenya Football Portal</p>
+  <p>Built with HTML • Hosted on GitHub Pages</p>
 </footer>
 
 </body>
