@@ -1,7 +1,6 @@
 import React from 'react';
-import React from 'react';
-import { news, leagueTable, topScorers, fixtures } from './mockData';
-import MatchFixtures from './components/MatchFixtures';
+import { news, leagueTable, topScorers, fixturesData } from './mockData';
+import MatchFixturesCalendar from './components/MatchFixturesCalendar';
 import './App.css'; // Assuming you might have a global CSS file
 
 function App() {
@@ -12,6 +11,8 @@ function App() {
             </header>
 
             <main className="dashboard-content">
+                <MatchFixturesCalendar fixturesData={fixturesData} />
+
                 <section className="news-section card">
                     <h2>Latest News</h2>
                     <div className="news-grid">
@@ -25,8 +26,6 @@ function App() {
                         ))}
                     </div>
                 </section>
-
-                <MatchFixtures fixtures={fixtures} />
 
                 <section className="league-table-section card">
                     <h2>KPL League Table</h2>
@@ -171,77 +170,160 @@ style.innerHTML = `
         }
     }
 
-    /* New styles for MatchFixtures component */
-    .match-fixtures-section {
+    /* Match Fixtures Calendar styles */
+    .match-fixtures-calendar-section {
         grid-column: 1 / -1; /* Span full width on smaller screens */
     }
 
     @media (min-width: 768px) {
-        .match-fixtures-section {
+        .match-fixtures-calendar-section {
+            grid-column: 1 / 2; /* Place at top-left on larger screens */
+            grid-row: 1 / 2;
+        }
+        .news-section {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3; /* Below Match Fixtures Calendar */
+        }
+        .league-table-section {
             grid-column: 2 / 3;
-            grid-row: 3 / 4; /* Place below league table on larger screens */
+            grid-row: 1 / 3; /* Occupy two rows to the right */
+        }
+        .top-scorers-section {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4; /* Below news section */
         }
     }
 
-    .fixtures-list {
+    .filter-buttons {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .filter-button {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .filter-button:hover {
+        background-color: var(--border-color);
+    }
+
+    .filter-button.active {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: var(--bg-color);
+        font-weight: bold;
+    }
+
+    .fixtures-calendar-list {
         margin-top: 15px;
     }
 
     .fixture-day {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
     .fixture-day h3 {
         color: var(--primary-color);
-        margin-bottom: 10px;
-        font-size: 1.2em;
+        margin-bottom: 15px;
+        font-size: 1.3em;
         border-bottom: 1px dashed var(--border-color);
-        padding-bottom: 5px;
+        padding-bottom: 8px;
     }
 
     .fixture-card {
         background-color: var(--bg-color);
         border: 1px solid var(--border-color);
         border-radius: 8px;
-        padding: 10px 15px;
-        margin-bottom: 10px;
+        padding: 12px 18px;
+        margin-bottom: 12px;
         display: flex;
         align-items: center;
-        gap: 15px;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
-    .fixture-card .fixture-type {
+    .fixture-card.premier-league-fixture {
+        border-left: 5px solid var(--primary-color);
+    }
+
+    .fixture-card.grassroots-fixture {
+        border-left: 5px solid var(--secondary-color);
+    }
+
+    .fixture-teams {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-grow: 1;
+        min-width: 250px; /* Ensure teams stay together */
+    }
+
+    .fixture-teams .team-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .fixture-teams .team-logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #333; /* Fallback for logos */
+        object-fit: contain;
+    }
+
+    .fixture-teams .team-name {
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .fixture-teams .vs {
+        font-style: italic;
+        color: #aaa;
+        margin: 0 5px;
+    }
+
+    .fixture-details {
+        text-align: right;
+        flex-grow: 1;
+        min-width: 150px;
+    }
+
+    .fixture-details .time-venue {
+        font-size: 0.9em;
+        color: #aaa;
+        margin: 0;
+    }
+
+    .status-badge {
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 0.75em;
         font-weight: bold;
         text-transform: uppercase;
-    }
-
-    .premier-league-fixture .fixture-type {
-        background-color: var(--primary-color);
         color: var(--bg-color);
     }
 
-    .grassroots-fixture .fixture-type {
-        background-color: var(--secondary-color);
+    .status-badge.upcoming {
+        background-color: #2196F3; /* Blue */
+    }
+
+    .status-badge.live {
+        background-color: #F44336; /* Red */
+    }
+
+    .status-badge.postponed {
+        background-color: #FFC107; /* Amber */
         color: var(--bg-color);
-    }
-
-    .fixture-details {
-        flex-grow: 1;
-    }
-
-    .fixture-details .teams {
-        font-weight: bold;
-        margin: 0;
-        font-size: 1em;
-    }
-
-    .fixture-details .time-venue {
-        font-size: 0.85em;
-        color: #aaa;
-        margin: 0;
     }
 `;
 document.head.appendChild(style);

@@ -50,7 +50,7 @@ export const topScorers = [
     { rank: 5, player: "Derrick Otanga", team: "KCB FC", goals: 10 }
 ];
 
-export const fixtures = [
+export const fixturesData = [
     {
         id: 1,
         type: "Premier League",
@@ -58,7 +58,10 @@ export const fixtures = [
         time: "15:00",
         homeTeam: "Gor Mahia",
         awayTeam: "AFC Leopards",
-        venue: "Nyayo National Stadium"
+        venue: "Nyayo National Stadium",
+        homeTeamLogo: "https://via.placeholder.com/30/4CAF50/FFFFFF?text=GM", // Placeholder for Gor Mahia
+        awayTeamLogo: "https://via.placeholder.com/30/2196F3/FFFFFF?text=AL", // Placeholder for AFC Leopards
+        status: "Upcoming"
     },
     {
         id: 2,
@@ -67,7 +70,10 @@ export const fixtures = [
         time: "15:00",
         homeTeam: "Tusker FC",
         awayTeam: "Bandari FC",
-        venue: "Kasarani Stadium"
+        venue: "Kasarani Main Stadium",
+        homeTeamLogo: "https://via.placeholder.com/30/FFC107/000000?text=TFC", // Placeholder for Tusker FC
+        awayTeamLogo: "https://via.placeholder.com/30/9C27B0/FFFFFF?text=BFC", // Placeholder for Bandari FC
+        status: "Upcoming"
     },
     {
         id: 3,
@@ -76,7 +82,10 @@ export const fixtures = [
         time: "13:00",
         homeTeam: "KCB FC",
         awayTeam: "Sofapaka FC",
-        venue: "Machakos Stadium"
+        venue: "Machakos Stadium",
+        homeTeamLogo: "https://via.placeholder.com/30/795548/FFFFFF?text=KCB", // Placeholder for KCB FC
+        awayTeamLogo: "https://via.placeholder.com/30/FF9800/FFFFFF?text=SFC", // Placeholder for Sofapaka FC
+        status: "Upcoming"
     },
     {
         id: 4,
@@ -85,7 +94,10 @@ export const fixtures = [
         time: "10:00",
         homeTeam: "Local Heroes FC",
         awayTeam: "Village Stars",
-        venue: "Bukhungu Stadium"
+        venue: "Bukhungu Stadium",
+        homeTeamLogo: "https://via.placeholder.com/30/8BC34A/FFFFFF?text=LH", // Placeholder
+        awayTeamLogo: "https://via.placeholder.com/30/607D8B/FFFFFF?text=VS", // Placeholder
+        status: "Upcoming"
     },
     {
         id: 5,
@@ -94,7 +106,10 @@ export const fixtures = [
         time: "15:00",
         homeTeam: "Kakamega Homeboyz",
         awayTeam: "Kenya Police FC",
-        venue: "Bukhungu Stadium"
+        venue: "Bukhungu Stadium",
+        homeTeamLogo: "https://via.placeholder.com/30/CDDC39/000000?text=KH", // Placeholder for Kakamega Homeboyz
+        awayTeamLogo: "https://via.placeholder.com/30/E91E63/FFFFFF?text=KP", // Placeholder for Kenya Police FC
+        status: "Upcoming"
     },
     {
         id: 6,
@@ -103,6 +118,45 @@ export const fixtures = [
         time: "14:00",
         homeTeam: "Youth Academy",
         awayTeam: "Rising Talents",
-        venue: "City Grounds"
+        venue: "City Grounds",
+        homeTeamLogo: "https://via.placeholder.com/30/00BCD4/FFFFFF?text=YA", // Placeholder
+        awayTeamLogo: "https://via.placeholder.com/30/FF5722/FFFFFF?text=RT", // Placeholder
+        status: "Upcoming"
+    },
+    {
+        id: 7,
+        type: "Premier League",
+        date: "2026-06-18",
+        time: "16:00",
+        homeTeam: "Posta Rangers",
+        awayTeam: "Nzoia Sugar FC",
+        venue: "Thika Stadium",
+        homeTeamLogo: "https://via.placeholder.com/30/3F51B5/FFFFFF?text=PR", // Placeholder for Posta Rangers
+        awayTeamLogo: "https://via.placeholder.com/30/7CB342/FFFFFF?text=NS", // Placeholder for Nzoia Sugar FC
+        status: "Upcoming"
+    },
+    {
+        id: 8,
+        type: "Premier League",
+        date: "2026-06-18",
+        time: "15:00",
+        homeTeam: "Gor Mahia",
+        awayTeam: "Kariobangi Sharks",
+        venue: "Kasarani Main Stadium",
+        homeTeamLogo: "https://via.placeholder.com/30/4CAF50/FFFFFF?text=GM", // Placeholder for Gor Mahia
+        awayTeamLogo: "https://via.placeholder.com/30/9E9E9E/FFFFFF?text=KS", // Placeholder for Kariobangi Sharks
+        status: "Upcoming"
+    },
+    {
+        id: 9,
+        type: "Grassroots",
+        date: "2026-06-19",
+        time: "09:30",
+        homeTeam: "Community FC",
+        awayTeam: "Amateur United",
+        venue: "Local Pitch A",
+        homeTeamLogo: "https://via.placeholder.com/30/009688/FFFFFF?text=CFC", // Placeholder
+        awayTeamLogo: "https://via.placeholder.com/30/E0F2F1/000000?text=AU", // Placeholder
+        status: "Upcoming"
     }
 ];
