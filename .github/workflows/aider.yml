@@ -4,7 +4,6 @@ on:
   issues:
     types: [opened, edited]
 
-# Explicitly grants write access to commit code and update issues
 permissions:
   contents: write
   issues: write
@@ -33,15 +32,15 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Safely passes the issue text to prevent terminal command execution bugs
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-          # Configure Git metadata so the bot can commit code
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
           
-          # Run Aider with the --yes flag to bypass interactive prompts
-          aider --model gemini/gemini-2.5-flash --yes --message "Please resolve this request from GitHub Issue #${{ github.event.issue.number }}: ${{ github.event.issue.body }}"
+          # Added --stream flag for headless runs and properly encapsulated the prompt variable
+          aider --model gemini/gemini-2.5-flash --yes --stream --message "$ISSUE_BODY"
 
       - name: Push updates back to your branch
         run: |
-          # Push code changes safely to your main branch
           git push origin HEAD:main || echo "No changes to push"
