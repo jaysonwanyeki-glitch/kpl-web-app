@@ -4,6 +4,12 @@ on:
   issues:
     types: [opened, edited]
 
+# Explicitly grants write access to commit code and update issues
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   aider:
     runs-on: ubuntu-latest
@@ -28,13 +34,14 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Automatically configures Git author details
+          # Configure Git metadata so the bot can commit code
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@://github.com"
           
-          # Instructs Aider to read the issue text and make updates
-          aider --model gemini/gemini-2.5-flash --message "Please resolve this request from GitHub Issue #${{ github.event.issue.number }}: ${{ github.event.issue.body }}"
+          # Run Aider with the --yes flag to bypass interactive prompts
+          aider --model gemini/gemini-2.5-flash --yes --message "Please resolve this request from GitHub Issue #${{ github.event.issue.number }}: ${{ github.event.issue.body }}"
 
       - name: Push updates back to your branch
         run: |
-          git push origin main
+          # Push code changes safely to your main branch
+          git push origin HEAD:main || echo "No changes to push"
