@@ -49,3 +49,60 @@ export const topScorers = [
     { rank: 4, player: "David Okoth", team: "Kakamega Homeboyz", goals: 11 },
     { rank: 5, player: "Derrick Otanga", team: "KCB FC", goals: 10 }
 ];
+
+export const fixtures = [
+    {
+        id: 1,
+        type: "Premier League",
+        date: "2026-06-15",
+        time: "15:00",
+        homeTeam: "Gor Mahia",
+        awayTeam: "AFC Leopards",
+        venue: "Nyayo National Stadium"
+    },
+    {
+        id: 2,
+        type: "Premier League",
+        date: "2026-06-15",
+        time: "15:00",
+        homeTeam: "Tusker FC",
+        awayTeam: "Bandari FC",
+        venue: "Kasarani Stadium"
+    },
+    {
+        id: 3,
+        type: "Premier League",
+        date: "2026-06-16",
+        time: "13:00",
+        homeTeam: "KCB FC",
+        awayTeam: "Sofapaka FC",
+        venue: "Machakos Stadium"
+    },
+    {
+        id: 4,
+        type: "Grassroots",
+        date: "2026-06-16",
+        time: "10:00",
+        homeTeam: "Local Heroes FC",
+        awayTeam: "Village Stars",
+        venue: "Bukhungu Stadium"
+    },
+    {
+        id: 5,
+        type: "Premier League",
+        date: "2026-06-17",
+        time: "15:00",
+        homeTeam: "Kakamega Homeboyz",
+        awayTeam: "Kenya Police FC",
+        venue: "Bukhungu Stadium"
+    },
+    {
+        id: 6,
+        type: "Grassroots",
+        date: "2026-06-17",
+        time: "14:00",
+        homeTeam: "Youth Academy",
+        awayTeam: "Rising Talents",
+        venue: "City Grounds"
+    }
+];

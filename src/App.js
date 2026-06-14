@@ -1,5 +1,7 @@
 import React from 'react';
-import { news, leagueTable, topScorers } from './mockData';
+import React from 'react';
+import { news, leagueTable, topScorers, fixtures } from './mockData';
+import MatchFixtures from './components/MatchFixtures';
 import './App.css'; // Assuming you might have a global CSS file
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
                         ))}
                     </div>
                 </section>
+
+                <MatchFixtures fixtures={fixtures} />
 
                 <section className="league-table-section card">
                     <h2>KPL League Table</h2>
@@ -162,104 +166,82 @@ style.innerHTML = `
         .top-scorers-section {
             grid-column: 1 / 2;
         }
+        .match-fixtures-section {
+            grid-column: 1 / 2;
+        }
     }
 
-    .card {
-        background-color: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* New styles for MatchFixtures component */
+    .match-fixtures-section {
+        grid-column: 1 / -1; /* Span full width on smaller screens */
     }
 
-    .card h2 {
-        color: var(--secondary-color);
-        margin-top: 0;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 10px;
-        margin-bottom: 20px;
+    @media (min-width: 768px) {
+        .match-fixtures-section {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4; /* Place below league table on larger screens */
+        }
     }
 
-    .news-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-    }
-
-    .news-card {
-        background-color: var(--bg-color);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .news-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-
-    .news-card h3 {
-        color: var(--primary-color);
-        margin-top: 0;
-        margin-bottom: 5px;
-        font-size: 1.1em;
-    }
-
-    .news-card .news-date {
-        font-size: 0.8em;
-        color: #aaa;
-        margin-bottom: 10px;
-    }
-
-    .news-card p {
-        font-size: 0.9em;
-        line-height: 1.4;
-    }
-
-    .table-container {
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
+    .fixtures-list {
         margin-top: 15px;
     }
 
-    th, td {
-        border: 1px solid var(--border-color);
-        padding: 10px;
-        text-align: left;
+    .fixture-day {
+        margin-bottom: 20px;
     }
 
-    th {
-        background-color: #333;
+    .fixture-day h3 {
         color: var(--primary-color);
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 5px;
+    }
+
+    .fixture-card {
+        background-color: var(--bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .fixture-card .fixture-type {
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.75em;
         font-weight: bold;
+        text-transform: uppercase;
     }
 
-    tr:nth-child(even) {
-        background-color: #2e2e2e;
+    .premier-league-fixture .fixture-type {
+        background-color: var(--primary-color);
+        color: var(--bg-color);
     }
 
-    tr:hover {
-        background-color: #383838;
+    .grassroots-fixture .fixture-type {
+        background-color: var(--secondary-color);
+        color: var(--bg-color);
     }
 
-    .footer {
-        width: 100%;
-        max-width: 1200px;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 50px;
-        border-top: 1px solid var(--border-color);
-        font-size: 0.9em;
-        color: #999;
+    .fixture-details {
+        flex-grow: 1;
+    }
+
+    .fixture-details .teams {
+        font-weight: bold;
+        margin: 0;
+        font-size: 1em;
+    }
+
+    .fixture-details .time-venue {
+        font-size: 0.85em;
+        color: #aaa;
+        margin: 0;
     }
 `;
 document.head.appendChild(style);
