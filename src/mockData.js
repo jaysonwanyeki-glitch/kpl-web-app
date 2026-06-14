@@ -1,0 +1,51 @@
+export const news = [
+    {
+        id: 1,
+        title: "Gor Mahia Clinch Record 21st KPL Title!",
+        date: "2026-06-12",
+        summary: "Gor Mahia secured their record 21st Kenyan Premier League title with a dominant performance against Sofapaka FC, winning 3-0 at Kasarani Stadium.",
+        imageUrl: "https://example.com/gor_mahia_win.jpg" // Placeholder image URL
+    },
+    {
+        id: 2,
+        title: "AFC Leopards Eyeing Top Four Finish After Crucial Win",
+        date: "2026-06-10",
+        summary: "AFC Leopards boosted their chances of a top-four finish after a narrow 1-0 victory over Kariobangi Sharks. Ingwe's resilience was on full display.",
+        imageUrl: "https://example.com/afc_leopards_win.jpg" // Placeholder image URL
+    },
+    {
+        id: 3,
+        title: "Tusker FC Stumble, Title Hopes Fading?",
+        date: "2026-06-09",
+        summary: "Tusker FC suffered a surprising 2-1 defeat to Kakamega Homeboyz, putting a dent in their title aspirations. The Brewers need to regroup quickly.",
+        imageUrl: "https://example.com/tusker_defeat.jpg" // Placeholder image URL
+    },
+    {
+        id: 4,
+        title: "Young Talents Shine in KPL Mid-Season Review",
+        date: "2026-06-05",
+        summary: "A look at the breakout stars and promising young talents who have made a significant impact in the Kenyan Premier League this season.",
+        imageUrl: "https://example.com/young_talents.jpg" // Placeholder image URL
+    }
+];
+
+export const leagueTable = [
+    { rank: 1, team: "Gor Mahia", played: 28, wins: 20, draws: 6, losses: 2, goalsFor: 55, goalsAgainst: 18, goalDifference: 37, points: 66 },
+    { rank: 2, team: "Tusker FC", played: 28, wins: 18, draws: 5, losses: 5, goalsFor: 48, goalsAgainst: 20, goalDifference: 28, points: 59 },
+    { rank: 3, team: "Bandari FC", played: 28, wins: 16, draws: 8, losses: 4, goalsFor: 42, goalsAgainst: 22, goalDifference: 20, points: 56 },
+    { rank: 4, team: "AFC Leopards", played: 28, wins: 14, draws: 9, losses: 5, goalsFor: 39, goalsAgainst: 25, goalDifference: 14, points: 51 },
+    { rank: 5, team: "Kakamega Homeboyz", played: 28, wins: 12, draws: 10, losses: 6, goalsFor: 35, goalsAgainst: 28, goalDifference: 7, points: 46 },
+    { rank: 6, team: "Kenya Police FC", played: 28, wins: 10, draws: 12, losses: 6, goalsFor: 30, goalsAgainst: 24, goalDifference: 6, points: 42 },
+    { rank: 7, team: "KCB FC", played: 28, wins: 9, draws: 11, losses: 8, goalsFor: 28, goalsAgainst: 26, goalDifference: 2, points: 38 },
+    { rank: 8, team: "Sofapaka FC", played: 28, wins: 8, draws: 9, losses: 11, goalsFor: 29, goalsAgainst: 33, goalDifference: -4, points: 33 },
+    { rank: 9, team: "Posta Rangers", played: 28, wins: 7, draws: 10, losses: 11, goalsFor: 25, goalsAgainst: 30, goalDifference: -5, points: 31 },
+    { rank: 10, team: "Nzoia Sugar FC", played: 28, wins: 6, draws: 12, losses: 10, goalsFor: 22, goalsAgainst: 32, goalDifference: -10, points: 30 }
+];
+
+export const topScorers = [
+    { rank: 1, player: "Benson Omalla", team: "Gor Mahia", goals: 18 },
+    { rank: 2, player: "Eric Kapaito", team: "Kariobangi Sharks", goals: 15 },
+    { rank: 3, player: "Patrick Kaddu", team: "Gor Mahia", goals: 12 },
+    { rank: 4, player: "David Okoth", team: "Kakamega Homeboyz", goals: 11 },
+    { rank: 5, player: "Derrick Otanga", team: "KCB FC", goals: 10 }
+];
