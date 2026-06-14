@@ -4,6 +4,7 @@ on:
   issues:
     types: [opened, edited]
 
+# Grants explicit write access for git commits and issue modifications
 permissions:
   contents: write
   issues: write
@@ -31,16 +32,18 @@ jobs:
       - name: Execute Aider to Fix Code
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Safely passes the issue text to prevent terminal command execution bugs
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
+          # Set up global Git configurations for the commit agent
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
           
-          # Added --stream flag for headless runs and properly encapsulated the prompt variable
+          # Run Aider passing down the issue text safely as an environment variable string
           aider --model gemini/gemini-2.5-flash --yes --stream --message "$ISSUE_BODY"
 
       - name: Push updates back to your branch
         run: |
+          # Safely push updates back to your live branch on GitHub
           git push origin HEAD:main || echo "No changes to push"
