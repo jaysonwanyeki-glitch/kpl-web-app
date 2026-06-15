@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { news } from './mockData';
+import { news, fixturesData, leagueTableData, topScorersData } from './mockData';
 import MatchFixturesCalendar from './components/MatchFixturesCalendar';
 import LiveMatchCenter from './components/LiveMatchCenter'; // Import the new component
 import './App.css';
-import { getFixtures, getLeagueStandings, getTopScorers } from './services/footballApi';
 
 function App() {
     const [fixtures, setFixtures] = useState([]);
