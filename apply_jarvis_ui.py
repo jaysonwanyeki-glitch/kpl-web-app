@@ -1,3 +1,7 @@
+import os
+
+# Content for src/App.css - Jarvis HUD Theme
+new_app_css_content = """
 /* Jarvis HUD Theme for KPL Dashboard */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
@@ -708,3 +712,48 @@ table td:last-child { /* Goals */
     color: var(--jarvis-electric-green);
     text-shadow: 0 0 3px rgba(57,255,20,0.5);
 }
+
+"""
+
+# Content for src/components/Navbar.js - Adding the status banner
+new_navbar_js_content = """import React from 'react';
+
+function Navbar() {
+    return (
+        <div className="navbar-container">
+            <div className="status-banner">SYSTEM STATUS: KPL TRACKER ACTIVE</div>
+            <header className="header">
+                <h1>Kenyan Premier League Dashboard</h1>
+            </header>
+        </div>
+    );
+}
+
+export default Navbar;
+"""
+
+# Define file paths
+app_css_path = 'src/App.css'
+navbar_js_path = 'src/components/Navbar.js'
+
+def apply_jarvis_theme():
+    print(f"Applying Jarvis UI theme to {app_css_path} and {navbar_js_path}...")
+
+    # Write to src/App.css
+    try:
+        with open(app_css_path, 'w') as f:
+            f.write(new_app_css_content)
+        print(f"Successfully wrote Jarvis CSS to {app_css_path}")
+    except IOError as e:
+        print(f"Error writing to {app_css_path}: {e}")
+
+    # Write to src/components/Navbar.js
+    try:
+        with open(navbar_js_path, 'w') as f:
+            f.write(new_navbar_js_content)
+        print(f"Successfully modified {navbar_js_path}")
+    except IOError as e:
+        print(f"Error writing to {navbar_js_path}: {e}")
+
+if __name__ == "__main__":
+    apply_jarvis_theme()
