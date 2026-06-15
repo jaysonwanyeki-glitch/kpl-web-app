@@ -11,12 +11,8 @@ function App() {
     const [fixturesError, setFixturesError] = useState(null);
 
     const [leagueTable, setLeagueTable] = useState([]);
-    const [leagueTableLoading, setLeagueTableLoading] = useState(true);
-    const [leagueTableError, setLeagueTableError] = useState(null);
 
     const [topScorers, setTopScorers] = useState([]);
-    const [topScorersLoading, setTopScorersLoading] = useState(true);
-    const [topScorersError, setTopScorersError] = useState(null);
 
     useEffect(() => {
         // Fetch Fixtures
