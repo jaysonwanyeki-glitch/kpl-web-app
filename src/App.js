@@ -4,7 +4,7 @@ import './App.css';
 
 // Import new components
 import Navbar from './components/Navbar';
-import MatchCenter from './components/MatchCenter';
+import LiveMatchCenter from './components/LiveMatchCenter';
 import FixturesCalendar from './components/FixturesCalendar';
 import NewsGrid from './components/NewsGrid';
 import StatsTables from './components/StatsTables';
@@ -32,7 +32,7 @@ function App() {
             <Navbar />
 
             <main className="dashboard-content">
-                <MatchCenter />
+                <LiveMatchCenter />
                 <FixturesCalendar fixtures={fixtures} loading={fixturesLoading} error={fixturesError} />
                 <NewsGrid news={latestNews} />
                 <StatsTables leagueTable={leagueTable} topScorers={topScorers} />
