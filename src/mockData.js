@@ -2,30 +2,56 @@ export const news = [
     {
         id: 1,
         title: "Gor Mahia Clinch Record 21st KPL Title!",
-        date: "2026-06-12",
+        date: "2026-06-12T10:30:00Z",
+        author: "Sports Desk",
         summary: "Gor Mahia secured their record 21st Kenyan Premier League title with a dominant performance against Sofapaka FC, winning 3-0 at Kasarani Stadium.",
-        imageUrl: "https://example.com/gor_mahia_win.jpg" // Placeholder image URL
+        body: "In a season-defining match, Gor Mahia showcased their class and determination, sweeping aside Sofapaka FC with a convincing 3-0 victory. The win at the packed Kasarani Stadium not only sealed their 21st league title but also underlined their dominance in Kenyan football. Goals from Benson Omalla, Austin Odhiambo, and an own goal ensured K'Ogalo celebrated in style, much to the delight of their passionate fanbase. Coach Johnathan McKinstry lauded his team's consistency and fighting spirit throughout the rigorous campaign.",
+        imageUrl: "https://images.unsplash.com/photo-1541811652-32ad51c3196a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
     },
     {
         id: 2,
         title: "AFC Leopards Eyeing Top Four Finish After Crucial Win",
-        date: "2026-06-10",
+        date: "2026-06-10T14:00:00Z",
+        author: "Football Analyst",
         summary: "AFC Leopards boosted their chances of a top-four finish after a narrow 1-0 victory over Kariobangi Sharks. Ingwe's resilience was on full display.",
-        imageUrl: "https://example.com/afc_leopards_win.jpg" // Placeholder image URL
+        body: "AFC Leopards continued their late-season surge with a hard-fought 1-0 win over Kariobangi Sharks, keeping their hopes for a top-four finish alive. The solitary goal came from a brilliant individual effort by Victor Omune in the second half. Ingwe's defense stood resolute, fending off continuous attacks from the Sharks. Coach Patrick Aussems expressed satisfaction with his team's fighting spirit, emphasizing the importance of maintaining focus in the remaining fixtures to secure continental football qualification.",
+        imageUrl: "https://images.unsplash.com/photo-1529900962386-b4ac12b821a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
     },
     {
         id: 3,
         title: "Tusker FC Stumble, Title Hopes Fading?",
-        date: "2026-06-09",
+        date: "2026-06-09T09:45:00Z",
+        author: "Match Reporter",
         summary: "Tusker FC suffered a surprising 2-1 defeat to Kakamega Homeboyz, putting a dent in their title aspirations. The Brewers need to regroup quickly.",
-        imageUrl: "https://example.com/tusker_defeat.jpg" // Placeholder image URL
+        body: "Tusker FC's title charge hit a snag after a shocking 2-1 loss to Kakamega Homeboyz. Despite taking an early lead, the Brewers failed to capitalize, allowing Homeboyz to stage a comeback with two quick goals in the second half. The defeat leaves Tusker trailing Gor Mahia significantly, with only a few matches left. Coach Robert Matano admitted his team's performance was below par and vowed to analyze the mistakes ahead of their next crucial encounter.",
+        imageUrl: "https://images.unsplash.com/photo-1577782352136-231a5477bb50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
     },
     {
         id: 4,
         title: "Young Talents Shine in KPL Mid-Season Review",
-        date: "2026-06-05",
+        date: "2026-06-05T17:15:00Z",
+        author: "Youth Football Scout",
         summary: "A look at the breakout stars and promising young talents who have made a significant impact in the Kenyan Premier League this season.",
-        imageUrl: "https://example.com/young_talents.jpg" // Placeholder image URL
+        body: "The current KPL season has been a breeding ground for exceptional young talent, with several players making their mark. From agile wingers to commanding central defenders, the league is buzzing with promising prospects. This mid-season review highlights players like John Doe from Ulinzi Stars and Jane Smith from Kariobangi Sharks, whose performances have caught the eye of national team selectors and international scouts alike. Their impact suggests a bright future for Kenyan football.",
+        imageUrl: "https://images.unsplash.com/photo-1596766440801-49ae84285b75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        id: 5,
+        title: "Injury Update: Star Striker Out for Three Weeks",
+        date: "2026-06-11T11:00:00Z",
+        author: "Club Physiotherapist",
+        summary: "Vihiga Bullets' leading goal scorer, Mark Ochieng, will be sidelined for three weeks due to a hamstring injury sustained in training.",
+        body: "Vihiga Bullets received a blow with the news that their prolific striker, Mark Ochieng, will be out of action for approximately three weeks. Ochieng, who has been instrumental in their recent run of form, picked up a hamstring injury during a training session. The club's medical team is confident of his full recovery, but his absence will be keenly felt in the upcoming crucial fixtures. Coach expects other players to step up and fill the void.",
+        imageUrl: "https://images.unsplash.com/photo-1531021966205-c49b6b718912?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        id: 6,
+        title: "New Sponsorship Deal Announced for Chemelil Sugar",
+        date: "2026-06-07T16:00:00Z",
+        author: "Business Reporter",
+        summary: "Chemelil Sugar FC has secured a major sponsorship deal with a leading beverage company, boosting their financial stability.",
+        body: "Chemelil Sugar FC announced a multi-year sponsorship agreement with 'Refresh Beverages,' a major boost for the club's financial health and stability. The deal is expected to provide much-needed resources for player welfare, infrastructure development, and youth academies. Club chairman expressed his gratitude to the new sponsors, highlighting the partnership as a significant step towards achieving their long-term goals and improving their competitiveness in the league.",
+        imageUrl: "https://images.unsplash.com/photo-1574629472659-c290a618408a?ixlib=rb-4.0.3&ixid=M3wxwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
     }
 ];
 

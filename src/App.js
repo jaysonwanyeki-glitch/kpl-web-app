@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { news } from './mockData'; // News remains static as no API specified
+import { news } from './mockData';
 import MatchFixturesCalendar from './components/MatchFixturesCalendar';
-import './App.css'; // Assuming you might have a global CSS file
+import LiveMatchCenter from './components/LiveMatchCenter'; // Import the new component
+import './App.css';
 import { getFixtures, getLeagueStandings, getTopScorers } from './services/footballApi';
 
 function App() {
@@ -85,6 +86,7 @@ function App() {
             </header>
 
             <main className="dashboard-content">
+                <LiveMatchCenter /> {/* New Live Match Center component */}
                 <MatchFixturesCalendar fixtures={fixtures} loading={fixturesLoading} error={fixturesError} />
 
                 <section className="news-section card">
@@ -93,9 +95,12 @@ function App() {
                         {news.map(article => (
                             <div key={article.id} className="news-card">
                                 {article.imageUrl && <img src={article.imageUrl} alt={article.title} />}
-                                <h3>{article.title}</h3>
-                                <p className="news-date">{article.date}</p>
-                                <p>{article.summary}</p>
+                                <div className="news-card-content">
+                                    <h3>{article.title}</h3>
+                                    <p className="news-meta">By {article.author} | {new Date(article.date).toLocaleDateString()}</p>
+                                    <p className="news-summary">{article.summary}</p>
+                                    {/* You could add a 'Read More' link here if full article pages were implemented */}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -103,9 +108,8 @@ function App() {
 
                 <section className="league-table-section card">
                     <h2>KPL League Table</h2>
-                    {leagueTableLoading && <p>Loading league table...</p>}
-                    {leagueTableError && <p className="error-message">Error loading league table: {leagueTableError}</p>}
-                    {!leagueTableLoading && !leagueTableError && leagueTable.length > 0 ? (
+                    {/* Removed explicit loading/error messages as per request */}
+                    {leagueTable.length > 0 ? (
                         <div className="table-container">
                             <table>
                                 <thead>
@@ -141,15 +145,14 @@ function App() {
                             </table>
                         </div>
                     ) : (
-                        !leagueTableLoading && !leagueTableError && <p>No league table data available.</p>
+                        <p>No league table data available.</p>
                     )}
                 </section>
 
                 <section className="top-scorers-section card">
                     <h2>Top Scorers</h2>
-                    {topScorersLoading && <p>Loading top scorers...</p>}
-                    {topScorersError && <p className="error-message">Error loading top scorers: {topScorersError}</p>}
-                    {!topScorersLoading && !topScorersError && topScorers.length > 0 ? (
+                    {/* Removed explicit loading/error messages as per request */}
+                    {topScorers.length > 0 ? (
                         <div className="table-container">
                             <table>
                                 <thead>
@@ -173,7 +176,7 @@ function App() {
                             </table>
                         </div>
                     ) : (
-                        !topScorersLoading && !topScorersError && <p>No top scorers data available.</p>
+                        <p>No top scorers data available.</p>
                     )}
                 </section>
             </main>
