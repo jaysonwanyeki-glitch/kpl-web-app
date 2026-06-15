@@ -15,64 +15,11 @@ function App() {
     const [topScorers, setTopScorers] = useState([]);
 
     useEffect(() => {
-        // Fetch Fixtures
-        const fetchFixtures = async () => {
-            setFixturesLoading(true);
-            setFixturesError(null);
-            try {
-                // Fetching fixtures for the next 7 days for a richer display
-                const today = new Date();
-                const datesToFetch = [];
-                for (let i = 0; i < 7; i++) {
-                    const d = new Date(today);
-                    d.setDate(today.getDate() + i);
-                    datesToFetch.push(d.toISOString().split('T')[0]);
-                }
-
-                const allFixtures = [];
-                for (const date of datesToFetch) {
-                    const dailyFixtures = await getFixtures(date);
-                    allFixtures.push(...dailyFixtures);
-                }
-                setFixtures(allFixtures);
-            } catch (error) {
-                setFixturesError(error.message);
-            } finally {
-                setFixturesLoading(false);
-            }
-        };
-
-        // Fetch League Standings
-        const fetchLeagueTable = async () => {
-            setLeagueTableLoading(true);
-            setLeagueTableError(null);
-            try {
-                const data = await getLeagueStandings();
-                setLeagueTable(data);
-            } catch (error) {
-                setLeagueTableError(error.message);
-            } finally {
-                setLeagueTableLoading(false);
-            }
-        };
-
-        // Fetch Top Scorers
-        const fetchTopScorers = async () => {
-            setTopScorersLoading(true);
-            setTopScorersError(null);
-            try {
-                const data = await getTopScorers();
-                setTopScorers(data);
-            } catch (error) {
-                setTopScorersError(error.message);
-            } finally {
-                setTopScorersLoading(false);
-            }
-        };
-
-        fetchFixtures();
-        fetchLeagueTable();
-        fetchTopScorers();
+        setFixtures(fixturesData);
+        setLeagueTable(leagueTableData);
+        setTopScorers(topScorersData);
+        setFixturesLoading(false);
+        setFixturesError(null);
     }, []); // Empty dependency array means this effect runs once on mount
 
     return (
